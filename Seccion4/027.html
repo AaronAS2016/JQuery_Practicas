@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clase 27</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <p>Clase 27 - Escuchar eventos de elemento que aún no existen </p>
+
+    <ul id="lista">
+      <li>Viejo</li>
+      <li>Viejo</li>
+      <li>Viejo</li>
+      <li>Viejo</li>
+      <li>Viejo</li>
+      <li>Viejo</li>
+      <li>Viejo</li>
+    </ul>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+  <script type="text/javascript">
+
+  var lista = $('#lista');
+  var contador = 0;
+
+  lista.on('click', 'li', function(){
+    contador++;
+    $(this).remove();
+
+    lista.append(`<li>Nuevo item ${contador} </li>`);
+  })
+
+  </script>
+  </body>
+</html>

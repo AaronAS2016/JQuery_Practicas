@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clase 37</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <p>Clase 37 - Ejecutar multiples peticiones ajax en paralelo</p>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script>
+
+  $.when($.get('data/1.json'), $.get('data/2.json'))
+  .then(function(r1, r2){
+
+    r1 = r1[0];
+    r2 = r2[0];
+    var mensaje = `${r1.mensaje} ${r2.nombre} de ${r2.edad} años`;
+    console.log(mensaje);
+  });
+
+
+
+  </script>
+  <script src="js/script.js"></script>
+  </body>
+</html>

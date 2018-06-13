@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clase 7</title>
+  </head>
+  <body>
+    <p>Clase 7 -  Usando el segundo argum,ento de la funcion $() </p>
+    <ul id="primeraLista">
+      <li>Uno</li>
+      <li>Dos</li>
+      <li>Tres</li>
+    </ul>
+
+    <ul id="segundaLista">
+
+      <li>Verde</li>
+      <li>Azul</li>
+
+    </ul>
+  </body>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+
+  $("li", "#primeraLista").each(function(){
+    console.log($(this).html());
+  })
+
+  var div = $('<div>',{
+    'class' : 'azul-grande',
+    'css' :{
+      'background-color' : 'blue'
+    },
+    'width': 30,
+    'height': 30,
+    'animate':{
+      'width' : 250,
+      'height' : 50,
+    }
+  });
+
+  div.appendTo('body');
+
+  </script>
+</html>

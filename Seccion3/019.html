@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clase 19 </title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <p>Clase 19 - Guardando elementos en cache</p>
+
+
+    <ul id="numeros">
+      <li>Primero</li>
+      <li>Segundo</li>
+      <li>Tercero</li>
+      <li>Cuarto</li>
+
+    </ul>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+
+
+//Mala practica
+    //$('#numero li').eq(2).remove();
+    // $('#numero li').eq(1).remove();
+    //$('#numero li').eq(0).remove();
+//
+
+//Buena practica
+
+  var $elemento = $('#numeros li');
+
+  //$elemento.eq(2).remove();
+  //$elemento.eq(1).remove();
+  //$elemento.eq(0).remove();
+
+  //Alternativa
+  $numeros.eq(0).remove().end()
+          .eq(1).remove().end();
+  </script>
+</html>

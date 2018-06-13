@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clase 10</title>
+    <style media="screen">
+      .menu{
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #000;
+        display: flex;
+        flex-direction: column;
+      }
+      .link{
+        width: 100%;
+        height: 40px;
+        text-decoration: none;
+        color: #333333;
+        font-size: 20px;
+        padding: 10px 0 10px 0;
+
+      }
+      .link:hover{
+        background-color: #333333;
+        color: white;
+        transition: all .2s;
+
+      }
+    </style>
+  </head>
+  <body>
+    <p>Clase 10 - Prevenir el click derecho y crear menú personalizado</p>
+  </body>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+        $(function(){
+            $(document).on('contextmenu', function(e){
+                e.preventDefault();
+                console.log(e.offsetX, e.offsetY);
+                $('.menu').remove();
+                let div = $('<div>', {
+                  'class': 'menu',
+                  'css':{
+                    'top':e.offsetY,
+                    'left':e.offsetX
+                  },
+                  'animate':{
+                    'width': '200',
+                    'height' : '300'
+                  }
+                }).append(
+                  $('<a>', {
+                    'class' : 'link',
+                    'href' : 'http://google.com',
+                    'text' : 'Ir a Google'
+                  })
+                ).append(
+                  $('<a>', {
+                    'class' : 'link',
+                    'href' : 'http://facebook.com',
+                    'text' : 'Ir a facebook'
+                  })
+                );
+                div.appendTo('body');
+            });
+        });
+  </script>
+</html>

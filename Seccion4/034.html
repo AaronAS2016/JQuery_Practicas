@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clase 34</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <p>Clase 34 - Crear eventos personalizados</p>
+
+    <button type="button" id="btn1">
+        Saltar
+    </button>
+    <button type="button" id="btn2">
+        Golpear
+    </button>
+    <button type="button" id="btn3">
+        Click
+    </button>
+
+    <div id="contenedor">
+
+    </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+  <script type="text/javascript">
+
+  var boton1 =  $('#btn1'),
+      boton2 =  $('#btn2'),
+      boton3 =  $('#btn3');
+
+var div = $('#contenedor');
+
+div.on({
+
+  saltar:function(){
+    console.log("Saltar!");
+  },
+  golpear: function(e, data){
+    console.log('Golpeando ' + data + "!");
+  },
+  click: function(){
+    console.log("Simulando un click");
+  }
+});
+
+boton1.on('click', function(){
+  div.trigger('saltar');
+});
+
+
+
+boton2.on('click', function(){
+  div.trigger('golpear', ['muy fuerte']);
+});
+
+
+
+boton3.on('click', function(){
+  div.trigger('click');
+});
+
+
+
+  </script>
+  </body>
+</html>

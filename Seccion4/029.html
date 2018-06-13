@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clase 29</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+    .slideshow{
+      width: 400px;
+      height: 400px;
+      background: red;
+    }
+    </style>
+  </head>
+  <body>
+    <p>Clase 29 - Simular eventos y simular parametros</p>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<div class="slideshow">
+
+</div>
+<button id="btnSiguiente">
+  >>
+</button>
+
+
+  <script type="text/javascript">
+
+  //agregando
+  function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+//leccion
+
+
+  $('#btnSiguiente').on('click', function(e, color){
+    color  = color || getRandomColor;
+    $('.slideshow').css({
+      backgroundColor: color
+    });
+  });
+
+  var boton = $('#btnSiguiente');
+
+  //boton.trigger('click');
+
+  boton.trigger('click', [getRandomColor]);
+
+  </script>
+  </body>
+</html>

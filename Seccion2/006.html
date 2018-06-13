@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clase 6</title>
+  </head>
+  <body>
+    <p>Clase 6 - Definir la función existe()</p>
+  </body>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+  //if($("h1").length > 0){
+  //  console.log("El lemento existe");
+  //}
+
+  $.fn.existe = function(){return this.length > 0;}
+
+  console.log( $("p").existe() ? "Existe" : "No existe" );
+
+  </script>
+</html>

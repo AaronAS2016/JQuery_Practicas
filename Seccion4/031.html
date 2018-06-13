@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clase 31</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <p>Clase 31 - Conociendo eventos</p>
+
+    <div id="holder">
+      <button type="button" id="boton1" class="btn btn-primary">1</button>
+      <button type="button" id="boton2" class="btn btn-primary">2</button>
+      <button type="button" id="boton3" class="btn btn-primary">3</button>
+      <button type="button" id="boton4" class="btn btn-primary">4</button>
+      <button type="button" id="boton5" class="btn btn-primary" style="float:right;">Limpiar</button>
+    </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+  <script type="text/javascript">
+    var boton1 = $('#boton1'),
+        boton2 = $('#boton2'),
+        boton3 = $('#boton3'),
+        boton4 = $('#boton4'),
+        boton5 = $('#boton5');
+
+  boton1.on('click', function(){
+    console.log('click');
+  });
+  boton2.on('mouseenter mouseleave.temp', function (){
+    console.log('Entro mouse / salio mouse');
+  });
+
+  boton3.on('click', Math.round(Math.random()*20), function(e){
+    console.log(`El numero random es:`, e.data);
+  });
+
+  boton4.on('click.temp', function(){
+    console.log("Temp disparado");
+  });
+
+  boton5.on('click', function(){
+    console.clear();
+    $('button').off('.temp');
+    console.log('Eventos de los botones TEMP han sido eliminados');
+  });
+  </script>
+  </body>
+</html>

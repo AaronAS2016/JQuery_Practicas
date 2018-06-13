@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clase 30</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <style >
+    #ball{
+      width: 150px;
+      height: 150px;
+      position: absolute;
+      border-radius: 100%;
+      background: rgb(148, 66, 231);
+    }
+
+    </style>
+  </head>
+  <body>
+    <p>Clase 30 - Trabajar con eventos cuando tocamos la pantalla con el dedo</p>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+  <script type="text/javascript">
+
+  var ball = $('<div id="ball"></div>').appendTo('body');
+
+  var startPosition = {};
+  var elementPosition = {};
+
+  ball.on('mousedown touchstart', function(e){
+    e.preventDefault();
+
+    e = (e.originalEvent.touches) ? e.originalEvent.touches[0] : e;
+    startPosition = {
+      x: e.pageX,
+      y: e.pageY
+    };
+    elementPosition = {
+      x: ball.offset().left,
+      y: ball.offset().top
+    };
+
+    ball.on('mousemove.rem touchmove.rem', function(e){
+      e = (e.originalEvent.touches) ? e.originalEvent.touches[0] : e;
+      ball.css({
+        top:elementPosition.y + (e.pageY - startPosition.y),
+        left:elementPosition.x + (e.pageX - startPosition.x),
+      });
+    });
+
+  });
+
+
+
+  ball.on('mouseup touched ', function(){
+    ball.off('.rem');
+  });
+
+  </script>
+  </body>
+</html>

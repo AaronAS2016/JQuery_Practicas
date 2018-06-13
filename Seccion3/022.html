@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Clase 22</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <p>Clase 22 - Desenlazar elementos del DOM cuando hacemos modificaciones complejas a ellos</p>
+    <div id="elem" style="background:blue">
+
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+      var i = 0, iteraciones = 1000;
+      var elem = $('#elem');
+
+      console.time('enlazado dom');
+
+    for(i=0; i<iteraciones; i++){
+      elem.width(Math.round(Math.random()*100));
+      elem.height(Math.round(Math.random()*100));
+    }
+
+      console.timeEnd('enlazado dom');
+
+
+
+    console.time('separado dom');
+    var parent = elem.parent();
+    elem.deteach();
+    for(i=0; i<iteraciones; i++){
+      elem.width(Math.round(Math.random()*100));
+      elem.height(Math.round(Math.random()*100));
+    }
+    elem.appendTo(parent);
+
+    console.timeEnd('separado dom');
+
+  </script>
+</html>
